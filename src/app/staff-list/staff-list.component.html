@@ -1,0 +1,29 @@
+<div class="list-group">
+  <label *ngIf="staffCount > 0" class="list-label">
+    List of Staff
+  </label>
+  <label *ngIf="staffCount==0" class="list-label">
+    List Empty - Please click on the "New +" button to add a staff member
+  </label>
+  <table id="staff-table" class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let staff_Member of staff">
+        <td><a routerLink="/staff/{{staff_Member.staffId}}">{{ staff_Member.firstName + " " + staff_Member.lastName }}</a></td>
+        <td>{{ staff_Member.emailAddress }}</td>
+        <td>{{ staff_Member.position }}
+          <a type="button" class="btn btn-danger anchor-buttons" id="delete-button" style="color: white;" (click)="deleteStaffMember(staff_Member.staffId)">Delete</a>
+          <a  routerLink="/staff" (click)="openDialogWithInfo(staff_Member.staffId)" type="button" class="btn btn-primary anchor-buttons">Edit</a>
+        </td>
+      </tr>
+      <button (click)="openDialog()" type="button" id="add-button" class="btn btn-light">New +</button>
+    </tbody>
+  </table>
+</div>
+

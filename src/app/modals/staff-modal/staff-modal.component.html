@@ -1,0 +1,44 @@
+<div class="fields-container"  mat-dialog-content>
+  <mat-form-field>
+    <mat-label>FirstName</mat-label>
+    <input matInput [(ngModel)]="staffMember.firstName" required>
+    <mat-error *ngIf="staffMember.firstName==''">You must enter a value</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>LastName</mat-label>
+    <input matInput [(ngModel)]="staffMember.lastName" required>
+    <mat-error *ngIf="staffMember.lastName==''">You must enter a value</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email Address</mat-label>
+    <input matInput [(ngModel)]="staffMember.emailAddress" required>
+    <mat-error *ngIf="staffMember.emailAddress==''">You must enter a value</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Position</mat-label>
+    <input matInput [(ngModel)]="staffMember.position" required>
+    <mat-error *ngIf="staffMember.position==''">You must enter a value</mat-error>
+  </mat-form-field>
+</div>
+<div *ngIf="showOptionalFields" class="fields-container" mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Home Address</mat-label>
+    <input matInput [(ngModel)]="staffMember.homeAddress">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>City</mat-label>
+    <input matInput [(ngModel)]="staffMember.city">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Zipcode</mat-label>
+    <input matInput [(ngModel)]="staffMember.zipCode">
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions id="button-container">
+  <button mat-stroked-button *ngIf="!isEditing()" (click)="addStaff()">Submit</button>
+  <button mat-stroked-button *ngIf="isEditing()" (click)="updateStaff()">Submit</button>
+  <button mat-stroked-button *ngIf="!showOptionalFields" (click)="reverseShowFieldsProperty()">Extra Fields</button>
+  <button mat-stroked-button *ngIf="showOptionalFields" (click)="reverseShowFieldsProperty()">Hide Extra Fields</button>
+  <button mat-stroked-button color="warn" (click)="closeDialogue()">Cancel</button>
+</div>

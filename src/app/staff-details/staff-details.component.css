@@ -1,0 +1,16 @@
+#container {
+  max-width: 50%;
+  margin: 8rem auto;
+}
+
+#submit-button {
+  margin-right: 5px;
+}
+
+button {
+  margin-bottom: 20px;
+}
+
+.expand-button {
+  margin-right: 10px;
+}

@@ -1,0 +1,30 @@
+<div class="list-group">
+  <label for="" class="list-label" *ngIf="playerCount > 0">
+    Tennis Players
+  </label>
+  <label for="" class="list-label" *ngIf="playerCount==0">
+    List Empty - Please click on the "New +" button to add a player
+  </label>
+  <table id="team-table" class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <td><a routerLink="/players/{{player.playerId}}">{{ player.firstName + " " + player.lastName }}</a></td>
+        <td>{{ player.emailAddress }}</td>
+        <td>{{ player.phoneNumber }}
+          <a type="button" class="btn btn-danger anchor-buttons" id="delete-button" style="color: white;" (click)="deletePlayer(player.playerId)">Delete</a>
+          <a  routerLink="/players" (click)="openDialogWithInfo(player.playerId)"  type="button" class="btn btn-primary anchor-buttons">Edit</a>
+        </td>
+      </tr>
+      <button (click)="openDialog()" type="button" id="add-button" class="btn btn-light">New + </button>
+    </tbody>
+  </table>
+</div>
+
+

@@ -1,0 +1,64 @@
+<div class="fields-container" mat-dialog-content>
+  <mat-form-field>
+    <mat-label>First Name</mat-label>
+    <input matInput [(ngModel)]="player.firstName" required>
+    <mat-error *ngIf="player.firstName==''">You must enter a value</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Last Name</mat-label>
+    <input matInput [(ngModel)]="player.lastName" required>
+    <mat-error *ngIf="player.lastName==''">You must enter a value</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email Address</mat-label>
+    <input matInput [(ngModel)]="player.emailAddress" required>
+    <mat-error *ngIf="player.emailAddress==''">You must enter a value</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Phone Number</mat-label>
+    <input matInput [(ngModel)]="player.phoneNumber" required>
+    <mat-error *ngIf="player.phoneNumber==''">You must enter a value</mat-error>
+  </mat-form-field>
+</div>
+<div *ngIf="showOptionalFields" class="fields-container" mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Home Address</mat-label>
+    <input matInput [(ngModel)]="player.homeAddress">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>City</mat-label>
+    <input matInput [(ngModel)]="player.city">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Zip Code</mat-label>
+    <input matInput [(ngModel)]="player.zipCode">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Position</mat-label>
+    <input matInput [(ngModel)]="player.position">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Gender</mat-label>
+    <input matInput [(ngModel)]="player.gender">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Shoe Model</mat-label>
+    <input matInput [(ngModel)]="player.shoeModel">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Shoe Size</mat-label>
+    <input matInput [(ngModel)]="player.shoeSize">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Racquet Model</mat-label>
+    <input matInput [(ngModel)]="player.racquetModel">
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions id="button-container">
+  <button mat-stroked-button *ngIf="!isEditing()" (click)="addPlayer()">Submit</button>
+  <button mat-stroked-button *ngIf="isEditing()" (click)="updatePlayer()">Submit</button>
+  <button mat-stroked-button *ngIf="!showOptionalFields" (click)="reverseShowFieldsProperty()">Extra Fields</button>
+  <button mat-stroked-button *ngIf="showOptionalFields" (click)="reverseShowFieldsProperty()">Hide Extra Fields</button>
+  <button mat-stroked-button color="warn" (click)="closeDialogue()">Cancel</button>
+</div>

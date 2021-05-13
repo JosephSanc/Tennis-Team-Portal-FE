@@ -1,0 +1,12 @@
+.welcome-header {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.welcome-header > h1{
+  font-size: 2rem;
+}
+
+.welcome-header > h5{
+  font-size: 1rem;
+}

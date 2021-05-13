@@ -1,0 +1,12 @@
+#button-container {
+  margin-left: 30px;
+}
+
+.fields-container {
+  text-align: center;
+  width: 100%;
+}
+
+.mat-form-field-infix {
+  width: 240px;
+}

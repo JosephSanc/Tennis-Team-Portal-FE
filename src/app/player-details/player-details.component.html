@@ -1,0 +1,55 @@
+<div id="container">
+  <form>
+    <div id="required-fields-container">
+      <div class="form-group">
+        <label for="">First Name</label>
+        <input type="text" class="form-control" id="firstname" placeholder="First Name" [disabled]="true" [value]="presentingPlayer.firstName" name="firstName">
+      </div>
+      <div class="form-group">
+        <label for="e">Last Name</label>
+        <input type="text" class="form-control" id="lastname" placeholder="Last Name" [disabled]="true" [value]="presentingPlayer.lastName" name="lastname">
+      </div>
+      <div class="form-group">
+        <label for="">Email</label>
+        <input type="text" class="form-control" id="email-address" placeholder="Email Address" [disabled]="true" [value]="presentingPlayer.emailAddress" name="email-address">
+      </div>
+      <div class="form-group">
+        <label for="">Phone Number</label>
+        <input type="text" class="form-control" id="phone-number" placeholder="Phone Number" [disabled]="true" [value]="presentingPlayer.phoneNumber" name="phone-number">
+      </div>
+    </div>
+    <div *ngIf="showExtraFields" id="optional-fields-container">
+      <div class="form-group">
+        <label for="">City</label>
+        <input type="text" class="form-control" id="city" placeholder="City" [disabled]="true" [value]="presentingPlayer.city" name="city">
+      </div>
+      <div class="form-group">
+        <label for="">Zip Code</label>
+        <input type="text" class="form-control" id="zipcode" placeholder="Zip Code" [disabled]="true" [value]="presentingPlayer.zipCode" name="zipcode">
+      </div>
+      <div class="form-group">
+        <label for="">Position</label>
+        <input type="text" class="form-control" id="position" placeholder="Position" [disabled]="true" [value]="presentingPlayer.position" name="position">
+      </div>
+      <div class="form-group">
+        <label for="">Gender</label>
+        <input type="text" class="form-control" id="gender" placeholder="Gender" [disabled]="true" [value]="presentingPlayer.gender" name="gender">
+      </div>
+      <div class="form-group">
+        <label for="">Shoe Model</label>
+        <input type="text" class="form-control" id="shoe-model" placeholder="Shoe Model" [disabled]="true" [value]="presentingPlayer.shoeModel" name="shoe-model">
+      </div>
+      <div class="form-group">
+        <label for="">Shoe Size</label>
+        <input type="text" class="form-control" id="shoe-size" placeholder="Shoe Size" [disabled]="true" [value]="presentingPlayer.shoeSize" name="shoe-size">
+      </div>
+      <div class="form-group">
+        <label for="">Racquet Model</label>
+        <input type="text" class="form-control" id="racquet-model" placeholder="Racquet Model" [disabled]="true" [value]="presentingPlayer.racquetModel" name="racquet-model">
+      </div>
+    </div>
+  </form>
+  <button type="button" class="expand-button btn btn-info" *ngIf="!showExtraFields" (click)="reverseShowExtraFields()">Advanced Information</button>
+  <button type="button" class="expand-button btn btn-info" *ngIf="showExtraFields" (click)="reverseShowExtraFields()">Hide Advanced Information</button>
+  <button routerLink="/players" type="button" class="btn btn-light"> 	&#60; Back</button>
+</div>
